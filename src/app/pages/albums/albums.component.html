@@ -1,1 +1,7 @@
-<p>albums works!</p>
+<h2>albums</h2>
+<ul>
+  <li *ngFor="let album of albums">
+    <h3>{{ album.title }}</h3>
+    <p>{{ album.body }}</p>
+  </li>
+</ul>

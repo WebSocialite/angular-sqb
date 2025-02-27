@@ -2,6 +2,5 @@
 <ul>
   <li *ngFor="let post of posts">
     <button (click)="viewPost(post.id)">{{ post.title }}</button>
-    <p>{{ post.body }}</p>
   </li>
 </ul>

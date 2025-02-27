@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class AppComponent {
-  title = 'sqb-task';
+export class HomeComponent {
   constructor(private router: Router) {}
 
   onNavigate(path: string) {
-    this.router.navigate([path]); 
+    this.router.navigate([path]);
   }
 }

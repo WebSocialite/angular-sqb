@@ -1,1 +1,7 @@
-<p>photos works!</p>
+<h2>photos</h2>
+<ul>
+  <li *ngFor="let photo of photos">
+    <h3>{{ photo.title }}</h3>
+    <p>{{ photo.body }}</p>
+  </li>
+</ul>

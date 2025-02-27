@@ -1,2 +1,7 @@
-<h2>Users Page</h2>
-<p>This is the users page. You can fetch and display user data here.</p>
+<h2>users</h2>
+<ul>
+  <li *ngFor="let user of users">
+    <h3>{{ user.title }}</h3>
+    <p>{{ user.body }}</p>
+  </li>
+</ul>

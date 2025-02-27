@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-post-detail',
-  standalone: true, // ✅ Ensure it's standalone
+  standalone: true, 
   imports: [CommonModule],
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.scss']
@@ -23,14 +23,14 @@ export class PostDetailComponent implements OnInit {
         .subscribe({
           next: (data: any) => {
             this.post = data;
-            this.isLoading = false; // ✅ Data loaded
+            this.isLoading = false;
           },
           error: () => {
-            this.isLoading = false; // ✅ Stop loading on error
+            this.isLoading = false; 
           }
         });
     } else {
-      this.isLoading = false; // ✅ Handle case where ID is missing
+      this.isLoading = false;
     }
   }
   goBack() {

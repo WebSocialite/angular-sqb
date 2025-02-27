@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class PostsComponent implements OnInit {
   posts: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.http.get('https://jsonplaceholder.typicode.com/posts')
@@ -22,5 +23,8 @@ export class PostsComponent implements OnInit {
         },
         error: (err) => console.error("Error fetching posts:", err)
       });
+  }
+  viewPost(id: number) {
+    this.router.navigate(['/posts', id]);  
   }
 }

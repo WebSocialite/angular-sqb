@@ -1,1 +1,17 @@
-<p>post-detail works!</p>
+<h2>Post Details</h2>
+
+<div *ngIf="isLoading">Loading...</div> 
+
+<div *ngIf="!isLoading && post">
+  <h3>{{ post.title }}</h3>
+  <p>{{ post.body }}</p>
+</div>
+
+<div *ngIf="!isLoading && !post">
+  <p>Error loading post. Please try again.</p>
+</div>
+
+<button (click)="goBack()">Go Back</button>
+<h2>Post Details</h2>
+
+

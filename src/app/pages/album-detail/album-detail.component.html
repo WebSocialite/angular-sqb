@@ -1,1 +1,16 @@
-<p>album-detail works!</p>
+<h2>Album Details</h2>
+
+<div *ngIf="isLoading">Loading...</div> 
+
+<div *ngIf="!isLoading && album">
+  <h3>{{ album.title }}</h3>
+  <p>{{ album.body }}</p>
+</div>
+
+<div *ngIf="!isLoading && !album">
+  <p>Error loading album. Please try again.</p>
+</div>
+
+<button (click)="goBack()">Go Back</button>
+
+

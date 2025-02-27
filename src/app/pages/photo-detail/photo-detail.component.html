@@ -1,1 +1,16 @@
-<p>photo-detail works!</p>
+<h2>photo Details</h2>
+
+<div *ngIf="isLoading">Loading...</div> 
+
+<div *ngIf="!isLoading && photo">
+  <h3>{{ photo.title }}</h3>
+  <p>{{ photo.body }}</p>
+</div>
+
+<div *ngIf="!isLoading && !photo">
+  <p>Error loading photo. Please try again.</p>
+</div>
+
+<button (click)="goBack()">Go Back</button>
+
+

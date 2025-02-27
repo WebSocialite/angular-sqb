@@ -1,7 +1,6 @@
 <h2>photos</h2>
 <ul>
   <li *ngFor="let photo of photos">
-    <h3>{{ photo.title }}</h3>
-    <p>{{ photo.body }}</p>
+    <button (click)="viewPhoto(photo.id)">{{ photo.title }}</button>
   </li>
 </ul>

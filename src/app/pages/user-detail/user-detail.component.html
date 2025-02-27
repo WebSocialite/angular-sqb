@@ -1,1 +1,17 @@
-<p>user-detail works!</p>
+<h2>User Details</h2>
+
+<div *ngIf="isLoading">Loading...</div> 
+
+<div *ngIf="!isLoading && user">
+  <h3>{{ user.id }}</h3>
+  <h3>{{ user.name }}</h3>
+  <p>{{ user.email }}</p>
+  <p>{{ user.address }}</p>
+  <p>{{ user.website }}</p>
+</div>
+
+<div *ngIf="!isLoading && !user">
+  <p>Error loading User. Please try again.</p>
+</div>
+
+<button (click)="goBack()">Go Back</button>

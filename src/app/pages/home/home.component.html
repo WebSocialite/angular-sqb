@@ -1,10 +1,18 @@
 <div class="container">
-    <h1>Welcome to the Dashboard</h1>
-    <button (click)="onNavigate('posts')">Posts</button>
-    <button (click)="onNavigate('users')">Users</button>
-    <button (click)="onNavigate('albums')">Albums</button>
-    <button (click)="onNavigate('photos')">Photos</button>
-  
+
+    <nav class="sidebar">
+        <h2>My App</h2>
+        <ul>
+    <li><a (click)="onNavigate('posts')">Posts</a></li>
+    <li><a (click)="onNavigate('users')">Users</a></li>
+    <li><a (click)="onNavigate('albums')">Albums</a></li>
+    <li><a (click)="onNavigate('photos')">Photos</a></li>
+</ul>
+</nav>
+   
+
+<div class="content">
     <router-outlet></router-outlet>
+  </div>
   </div>
   

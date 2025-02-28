@@ -1,16 +1,17 @@
-<h2>Post Details</h2>
+<div class="post-detail">
+  <div class="container">
+    <button class="back-btn" (click)="goBack()">← Back</button>
 
-<div *ngIf="isLoading">Loading...</div> 
+    <div *ngIf="isLoading" class="loading">Loading...</div>
 
-<div *ngIf="!isLoading && post">
-  <h3>{{ post.title }}</h3>
-  <p>{{ post.body }}</p>
+    <div *ngIf="!isLoading && post" class="post-content">
+      <h2>Post Details</h2>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+    </div>
+
+    <div *ngIf="!isLoading && !post" class="error">
+      <p>Error loading post. Please try again.</p>
+    </div>
+  </div>
 </div>
-
-<div *ngIf="!isLoading && !post">
-  <p>Error loading post. Please try again.</p>
-</div>
-
-<button (click)="goBack()">Go Back</button>
-
-

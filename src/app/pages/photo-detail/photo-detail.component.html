@@ -1,16 +1,19 @@
-<h2>photo Details</h2>
+<div class="photo-detail">
+  <div class="container">
+    <button class="back-btn" (click)="goBack()">← Back</button>
 
-<div *ngIf="isLoading">Loading...</div> 
+    <div *ngIf="isLoading" class="loading">Loading...</div>
 
-<div *ngIf="!isLoading && photo">
-  <h3>{{ photo.title }}</h3>
-  <p>{{ photo.body }}</p>
+    <div *ngIf="!isLoading && photo" class="photo-content">
+      <h2>Photo Details</h2>
+      <h3>{{ photo.albumId }}</h3>
+      <p>{{ photo.thumbnailUrl }}</p>
+      <p>{{ photo.title }}</p>
+      <p>{{ photo.url }}</p>
+    </div>
+
+    <div *ngIf="!isLoading && !photo" class="error">
+      <p>Error loading photo. Please try again.</p>
+    </div>
+  </div>
 </div>
-
-<div *ngIf="!isLoading && !photo">
-  <p>Error loading photo. Please try again.</p>
-</div>
-
-<button (click)="goBack()">Go Back</button>
-
-

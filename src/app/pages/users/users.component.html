@@ -1,14 +1,22 @@
+<div class="container">
+  <div class="sidebar">
 <h2>users</h2>
+</div>
+
+<div>
+  <table class="posts-table">
 <ul>
   <li *ngFor="let user of paginatedUsers">
     <button (click)="viewUser(user.id)">{{ user.name }}</button>
     
   </li>
 </ul>
+</table>
 
 <div class="pagination">
-    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
-    <span>Page {{ currentPage }} of {{ totalPages() }}</span>
-    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages()">Next</button>
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">←</button>
+  <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+  <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages()">→</button>
+</div>
   </div>
-  
+  </div>

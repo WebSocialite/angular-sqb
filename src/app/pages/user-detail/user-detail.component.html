@@ -1,17 +1,19 @@
-<h2>User Details</h2>
+<div class="user-detail">
+  <div class="container">
+    <button class="back-btn" (click)="goBack()">← Back</button>
 
-<div *ngIf="isLoading">Loading...</div> 
+    <div *ngIf="isLoading" class="loading">Loading...</div>
 
-<div *ngIf="!isLoading && user">
-  <h3>{{ user.id }}</h3>
-  <h3>{{ user.name }}</h3>
-  <p>{{ user.email }}</p>
-  <p>{{ user.address }}</p>
-  <p>{{ user.website }}</p>
+    <div *ngIf="!isLoading && user" class="user-content">
+      <h2>User Details</h2>
+      <h3>{{ user.name }}</h3>
+      <p>{{ user.email }}</p>
+      <p>{{ user.website }}</p>
+      <p>{{ user.id }}</p>
+    </div>
+
+    <div *ngIf="!isLoading && !user" class="error">
+      <p>Error loading user. Please try again.</p>
+    </div>
+  </div>
 </div>
-
-<div *ngIf="!isLoading && !user">
-  <p>Error loading User. Please try again.</p>
-</div>
-
-<button (click)="goBack()">Go Back</button>

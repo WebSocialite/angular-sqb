@@ -1,16 +1,17 @@
-<h2>Album Details</h2>
+<div class="album-detail">
+  <div class="container">
+    <button class="back-btn" (click)="goBack()">← Back</button>
 
-<div *ngIf="isLoading">Loading...</div> 
+    <div *ngIf="isLoading" class="loading">Loading...</div>
 
-<div *ngIf="!isLoading && album">
-  <h3>{{ album.title }}</h3>
-  <p>{{ album.body }}</p>
+    <div *ngIf="!isLoading && album" class="album-content">
+      <h2>Album Details</h2>
+      <h3>{{ album.userId }}</h3>
+      <p>{{ album.title }}</p>
+    </div>
+
+    <div *ngIf="!isLoading && !album" class="error">
+      <p>Error loading album. Please try again.</p>
+    </div>
+  </div>
 </div>
-
-<div *ngIf="!isLoading && !album">
-  <p>Error loading album. Please try again.</p>
-</div>
-
-<button (click)="goBack()">Go Back</button>
-
-

@@ -17,16 +17,6 @@ export class PostsComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // ngOnInit() {
-  //   this.http.get('https://jsonplaceholder.typicode.com/posts')
-  //     .subscribe({
-  //       next: (data: any) => {
-  //         this.posts = data;
-  //       },
-  //       error: (err) => console.error("Error fetching posts:", err)
-  //     });
-  // }
-
   ngOnInit() {
     this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts')
       .subscribe(data => this.posts = data);
@@ -46,7 +36,7 @@ export class PostsComponent implements OnInit {
       this.currentPage = page;
     }
   }
-  
+
   viewPost(id: number) {
     this.router.navigate(['/posts', id]);  
   }

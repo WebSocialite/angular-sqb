@@ -12,17 +12,34 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent {
   users: any[] = [];
+  paginatedUsers: any[] = [];
+  currentPage = 1;
+  itemsPerPage = 4;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
-    this.http.get('https://jsonplaceholder.typicode.com/users')
-      .subscribe({
-        next: (data: any) => {
-          this.users = data;
-        },
-        error: (err) => console.error("Error fetching users:", err)
+    this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')
+      .subscribe(data => {
+        this.users = data;
+        this.updatePagination();
       });
+  }
+
+  updatePagination() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    this.paginatedUsers = this.users.slice(start, start + this.itemsPerPage);
+  }
+
+  totalPages() {
+    return Math.ceil(this.users.length / this.itemsPerPage);
+  }
+
+  changePage(page: number) {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage = page;
+      this.updatePagination(); 
+    }
   }
   viewUser(id: number) {
     this.router.navigate(['/users', id]);  
